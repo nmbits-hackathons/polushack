@@ -44,3 +44,10 @@ class CalendarAdapter:
                 calendar_series.series.append(ResponseBaseCalendar.from_orm(item_model))
                 calendar_series.number_of_calendars += 1
         return calendar_series
+
+    @staticmethod
+    def delete_item(item_id: int) -> None:
+        with create_session() as session:
+            item_model = asyncio.run(session.get(Calendar, item_id))
+            asyncio.run(session.delete(item_model))
+            asyncio.run(session.commit())
