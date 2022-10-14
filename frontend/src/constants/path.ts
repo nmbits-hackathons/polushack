@@ -1,7 +1,7 @@
 export const MAIN_PATH = "/";
 export const REGISTER_PATH = "/register";
 export const USERS_PATH = "/users";
-export const APPLICATION_PATH = "/application";
+export const TRANSPORT_PATH = "/application";
 export const MAPS_PATH = "/maps";
 export const REGISTER_USER = "/users/register";
 
