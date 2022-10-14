@@ -1,6 +1,10 @@
+import asyncio
 from typing import Any, Optional, Union
 
-from app.db import Calendar, BaseCalendar
+from sqlalchemy import select
+
+from app.db import Calendar
+from app.schemas import BaseCalendar, ResponseBaseCalendar
 from app.db import create_session
 
 
@@ -11,18 +15,19 @@ class CalendarAdapter:
         with create_session() as session:
             item = Calendar(**item_model.dict())
             session.add(item)
-            # session.flush()
-            # item_id = item.id
-        return item.id
+            asyncio.run(session.flush())
+            item_id = item.id
+        return item_id
 
     @staticmethod
-    def get_item_by_id(post_id: int) -> Union[BaseCalendar, None]:
+    def get_item_by_id(item_id: int) -> Union[ResponseBaseCalendar, None]:
         with create_session() as session:
-            item_model = session.query(Calendar).get(post_id)
+            item_model = asyncio.run(session.get(Calendar, item_id))
+
             if item_model is None:
                 post = None
             else:
-                post = BaseCalendar.from_orm(item_model)
+                post = ResponseBaseCalendar.from_orm(item_model)
         return post
 
     @staticmethod

@@ -6,7 +6,7 @@ from fastapi import (
     HTTPException
 )
 
-from app.db import BaseCalendar
+from app.schemas import BaseCalendar
 
 from app.calendar.calendar_adapter import CalendarAdapter
 # from user.routers import get_user_by_id

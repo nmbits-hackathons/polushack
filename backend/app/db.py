@@ -20,7 +20,6 @@ from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.ext.declarative import DeclarativeMeta, declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy import Column,String,sql
-from pydantic import BaseModel
 import configparser
 from contextlib import asynccontextmanager
 import sqlalchemy
@@ -47,27 +46,11 @@ class Calendar(Base):
     from_place = Column(String)
     to_place = Column(String)
     distance = Column(Float)
-    # average_time = Column(TIMESTAMP)
+    average_time = Column(DATETIME)
     priority = Column(String)
     time_start = Column(String)
     time_end = Column(String)
     status = Column(String)
-
-
-class BaseCalendar(BaseModel):
-    id: int
-    vin: str
-    creator: str
-    type: str
-    characteristic: str
-    from_place: str
-    to_place: str
-    distance: float
-    # average_time: str
-    priority: str
-    time_start: str
-    time_end: str
-    status: str
 
 
 class OAuthAccount(SQLAlchemyBaseOAuthAccountTableUUID, Base):
