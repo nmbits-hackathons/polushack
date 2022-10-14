@@ -1,24 +1,24 @@
 import datetime
 import uuid
-from typing import List
+from typing import List, Optional
 
 from pydantic import BaseModel
 from fastapi_users import schemas
 
 
 class BaseCalendar(BaseModel):
-    vin: str
-    creator: str
-    type: str
-    characteristic: str
-    from_place: str
-    to_place: str
-    distance: float
-    average_time: datetime.datetime
-    priority: str
-    time_start: str
-    time_end: str
-    status: str
+    vin: Optional[str]
+    creator: Optional[str]
+    type: Optional[str]
+    characteristic: Optional[str]
+    from_place: Optional[str]
+    to_place: Optional[str]
+    distance: Optional[float]
+    average_time: Optional[datetime.datetime]
+    priority: Optional[str]
+    time_start: Optional[str]
+    time_end: Optional[str]
+    status: Optional[str]
 
     class Config:
         orm_mode = True

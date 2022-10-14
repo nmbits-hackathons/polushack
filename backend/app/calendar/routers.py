@@ -6,7 +6,7 @@ from fastapi import (
     HTTPException
 )
 
-from app.schemas import BaseCalendar
+from app.schemas import BaseCalendar, ResponseBaseCalendar
 
 from app.calendar.calendar_adapter import CalendarAdapter
 # from user.routers import get_user_by_id
@@ -52,4 +52,11 @@ def get_item_by_id(item_id: int):
 def delete_item_by_id(item_id: int):
     CalendarAdapter.delete_item(item_id=item_id)
     return 200
+
+
+@router.post('/update_item/', status_code=200)
+def update_item_by_id(item: ResponseBaseCalendar):
+    CalendarAdapter.update_item(item_model=item)
+    return 200
+
 
