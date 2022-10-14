@@ -33,11 +33,13 @@ class CalendarAdapter:
     @staticmethod
     def get_items() -> Any:
         with create_session() as session:
-            item_models = session.query(Calendar).all()
+            item_models = asyncio.run(session.execute(select(Calendar))).scalars().all()
+            print(666)
+            print(item_models)
             if item_models is None:
                 posts = None
             else:
-                posts = [BaseCalendar.from_orm(item_model) for item_model in item_models]
+                posts = [ResponseBaseCalendar.from_orm(item_model) for item_model in item_models]
         return posts
 
     # @staticmethod
