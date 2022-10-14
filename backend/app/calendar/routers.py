@@ -27,9 +27,7 @@ def get_items():
 
 
 @router.post('/add_item/')
-def add_item(
-        item: BaseCalendar,
-):
+def add_item(item: BaseCalendar):
     item_id = CalendarAdapter.create_item(item_model=item)
     return item_id
 
@@ -51,9 +49,7 @@ def get_item_by_id(item_id: int):
 
 
 @router.delete('/delete_item_by_id/', status_code=200)
-def delete_item_by_id(
-        item_id: int,
-):
+def delete_item_by_id(item_id: int):
     CalendarAdapter.delete_item(item_id=item_id)
     return 200
 
