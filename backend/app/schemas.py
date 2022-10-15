@@ -67,11 +67,14 @@ class TechnicsSeries(BaseModel):  # серии траспорта
 
 # _______________________________________________________________________________
 class ReadCalendar(TechnicsCharacteristic):  # заявка поступающая до обработки
-    creator: str
+    title: Optional[str]
+    description: Optional[str]
+    creator: Optional[str]
     time_start: Optional[datetime.datetime]  # время начала работ
     time_end: Optional[datetime.datetime]  # время окончания работ
     priority: Optional[str]  # выставленный приоритет  low high medium
     to_place: Optional[str]  # куда назначили константа
+
 
     class Config:
         orm_mode = True
@@ -115,6 +118,8 @@ class CalendarSeries(BaseModel):  # серии заявок
 
 
 class UpdateBaseCalendar(BaseModel):
+    title: Optional[str]
+    description: Optional[str]
     type: Optional[str]
     speed: Optional[int]
     power: Optional[int]

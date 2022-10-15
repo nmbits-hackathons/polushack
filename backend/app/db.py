@@ -37,7 +37,8 @@ class Calendar(Base):
     __tablename__ = 'Calendar'
 
     id = Column(Integer, primary_key=True)
-
+    title = Column(String)
+    description = Column(String)
     # необходимые хакактеристики машины в заявке
     type = Column(String)  # dumptruck, excavator, bulldozer
     speed = Column(Integer)  # необходимая скорость (средняя)
