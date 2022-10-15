@@ -24,14 +24,19 @@ const Header = ({ title, titleBtn, onClick }: HeaderProps) => {
                     className="header-search"
                     placeholder="Search"
                     suffix={
-                         <SearchOutlined style={{ color: "rgba(0,0,0,.45)" , fontSize: "20px"}} />
+                        <SearchOutlined
+                            style={{
+                                color: "rgba(0,0,0,.45)",
+                                fontSize: "20px"
+                            }}
+                        />
                     }
                 />,
                 <Button
                     className="header-btn"
                     key="1"
                     type="primary"
-                    icon={<PlusOutlined style={{fontSize: "12px"}} />}
+                    icon={<PlusOutlined style={{ fontSize: "12px" }} />}
                     {...{ onClick }}
                 >
                     {titleBtn}
