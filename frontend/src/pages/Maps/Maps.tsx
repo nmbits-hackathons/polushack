@@ -46,14 +46,18 @@ const Maps = () => {
                             height={"100vh"}
                             defaultState={{ center: [55.75, 37.57], zoom: 7 }}
                         >
-                            {showTransports.map(({ current_place }) => (
+                            {showTransports.map(({ current_place, is_job }) => (
                                 <Placemark
                                     geometry={current_place
                                         .split(",")
                                         .map((el) => +el)}
                                     options={{
                                         preset: "islands#blueAutoCircleIcon",
-                                        iconColor: "green"
+                                        iconColor:
+                                            user?.position === "dispatcher" &&
+                                            is_job
+                                                ? "red"
+                                                : "green"
                                     }}
                                 />
                             ))}
