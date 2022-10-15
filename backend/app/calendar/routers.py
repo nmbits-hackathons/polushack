@@ -37,8 +37,7 @@ def add_item(read_data: ReadCalendar, user: User = Depends(current_active_user))
     item = BaseCalendar(**read_data.dict())
     item.creator = user.email
     item.vin = "239"
-    item.status = "active"
-
+    item.status = "pending"
     response = CalendarAdapter.create_item(item_model=item)
     return response
 
