@@ -1,6 +1,6 @@
 aiosqlite==0.17.0
 anyio==3.6.1
-#asyncpg==0.26.0 for async Postgres
+asyncpg==0.26.0 #for async Postgres
 bcrypt==4.0.1
 certifi==2022.9.24
 cffi==1.15.1
