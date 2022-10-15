@@ -35,6 +35,8 @@
 }
 
 .information-main {
+    min-width: 420px;
+    max-width: 420px;
     display: flex;
     flex-flow: column nowrap;
     align-content: center;
@@ -48,6 +50,11 @@
     font-size: 20px;
     line-height: 28px;
     color: #132A40;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .information-description {
@@ -83,4 +90,10 @@
     align-content: center;
     justify-content: space-around;
     column-gap: 25px;
+}
+
+.card-status {
+    min-width: 120px;
+    max-width: 120px;
+    margin-left: 60px;
 }

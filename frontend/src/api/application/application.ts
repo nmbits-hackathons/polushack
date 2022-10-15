@@ -1,13 +1,13 @@
-import axios from "axios";
-import {ADD_APPLICATION, GET_APPLICATION} from "constants/path"
-import {Application, CreateApplicationDto} from "redux/application";
-import withMock from "../withMock";
-import { config } from "constants/configRequest";
+import axios from "axios"
+import { ADD_APPLICATION, GET_APPLICATION } from "constants/path"
+import { Application, CreateApplicationDto } from "redux/application"
+import withMock from "../withMock"
+import { getConfig } from "constants/configRequest"
 
-const isMock = process.env.IS_MOCK === "true";
+const isMock = process.env.IS_MOCK === "true"
 
 export interface GetApplicationsData {
-    counts: number;
+    counts: number
     applications: Application[]
 }
 
@@ -78,16 +78,22 @@ const mockApplications: GetApplicationsData = {
 }
 
 export const getApplicationsApi = async () => {
-    if (isMock) return withMock(mockApplications);
-    const { data } = await axios.get(GET_APPLICATION, config)
+    if (isMock) return withMock(mockApplications)
+    const { data } = await axios.get(GET_APPLICATION, getConfig())
     return {
         counts: data.number_of_calendars,
         applications: data.series
     }
 }
 
-export const addNewApplicationApi = async (createApplicationDto: CreateApplicationDto) => {
-    if (isMock) return withMock(mockApplications.applications[0]);
-    const { data } = await axios.post(ADD_APPLICATION, createApplicationDto, config)
+export const addNewApplicationApi = async (
+    createApplicationDto: CreateApplicationDto
+) => {
+    if (isMock) return withMock(mockApplications.applications[0])
+    const { data } = await axios.post(
+        ADD_APPLICATION,
+        createApplicationDto,
+        getConfig()
+    )
     return data
 }
