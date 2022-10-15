@@ -39,9 +39,9 @@ booking_router = APIRouter(
                      description="создание новой заявки на технику для заказчика, идет симулирование обработки - в "
                                  "частности создается заявка со статусом active, так же назначается vin машины 239 "
                                  "(получаем ResponseBaseCalendar)")
-def add_item(read_data: ReadCalendar, user: User = Depends(current_active_user)) -> ResponseBaseCalendar:
+def add_item(read_data: ReadCalendar) -> ResponseBaseCalendar:
     item = BaseCalendar(**read_data.dict())
-    item.creator = user.email
+    # item.creator = user.email
     item.status = "pending"
 
     response = CalendarAdapter.create_item(item_model=item)
