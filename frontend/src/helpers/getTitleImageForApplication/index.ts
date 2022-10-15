@@ -1,0 +1,1 @@
+export { getTitleImageForApplication } from "./getTitleImageForApplication"

@@ -3,12 +3,12 @@ import { UserState } from "redux/auth/interface";
 import { AsyncThunkConfig } from "redux/inerface";
 import { sessionApi } from "../../api";
 
-export const isSession = createAsyncThunk<UserState, string, AsyncThunkConfig>(
+export const isSession = createAsyncThunk<UserState, undefined, AsyncThunkConfig>(
   "auth/session",
   // @ts-ignore
-  async (token, { rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     try {
-      return await sessionApi(token);
+      return await sessionApi();
     } catch {
       return rejectWithValue("Ошибка регистрации");
     }

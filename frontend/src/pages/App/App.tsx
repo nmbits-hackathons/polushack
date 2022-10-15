@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 import { Layout, Spin, Typography } from "antd"
 import "antd/dist/antd.css"
+import "./app.css"
 import { Routes, Route } from "react-router-dom"
 import { useAppSelector, useAppDispatch } from "redux/inerface"
 import { isAuthSelector, isLoadingLogin, isSession } from "redux/auth"
@@ -14,15 +15,11 @@ const {
 } = Layout
 
 const App = () => {
-    const myStorage = window.localStorage
-    const token = myStorage.getItem("SID")
     const dispatch = useAppDispatch()
     const isAuth = useAppSelector(isAuthSelector)
     const isLoading = useAppSelector(isLoadingLogin)
     useEffect(() => {
-        if (token) {
-            dispatch(isSession(token))
-        }
+        dispatch(isSession())
     }, [])
 
     return (
@@ -45,7 +42,8 @@ const App = () => {
                             style={{
                                 display: "flex",
                                 flexFlow: "column",
-                                background: "#F2F1EF"
+                                background: "#F2F1EF",
+                                overflow: "hidden"
                             }}
                         >
                             <Routes>

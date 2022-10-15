@@ -2,9 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 import type { TypedUseSelectorHook } from "react-redux";
 import type { RootState, AppDispatch } from "./store";
 import { AuthState } from "redux/auth/interface";
+import {ApplicationState} from "redux/application";
 
 export interface Store {
   auth: AuthState;
+  application: ApplicationState;
 }
 
 export interface AsyncThunkConfig {
