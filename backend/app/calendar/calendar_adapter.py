@@ -10,7 +10,7 @@ from app.db import create_session
 
 class CalendarAdapter:
     @staticmethod
-    def create_item(item_model: BaseCalendar) -> int:
+    def create_item(item_model: BaseCalendar) -> Any:
         with create_session() as session:
             item = Calendar(**item_model.dict())
             session.add(item)
