@@ -37,7 +37,8 @@ class Calendar(Base):
     __tablename__ = 'Calendar'
 
     id = Column(Integer, primary_key=True)
-
+    title = Column(String)
+    description = Column(String)
     # необходимые хакактеристики машины в заявке
     type = Column(String)  # dumptruck, excavator, bulldozer
     speed = Column(Integer)  # необходимая скорость (средняя)
@@ -53,6 +54,7 @@ class Calendar(Base):
     priority = Column(String)  # выставленный приоритет  low high medium
 
     # данные хранимые после создания текущей заявки
+    driver_id = Column(String)
     vin = Column(String)
     from_place = Column(String)  # обновляем из данных по вину, каждые 5 минут например
     distance = Column(String)  # дистанция до назначенной машины пересчитывется

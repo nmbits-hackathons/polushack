@@ -16,6 +16,7 @@ class CalendarAdapter:
             session.add(item)
             asyncio.run(session.flush())
             item_response = ResponseBaseCalendar.from_orm(item)
+
         return item_response
 
     @staticmethod
@@ -30,14 +31,20 @@ class CalendarAdapter:
         return post
 
     @staticmethod
+    def get_items_by_vin(item_vin: str) -> Any:
+        with create_session() as session:
+            item_models = asyncio.run(session.execute(select(Calendar).filter(Calendar.vin == item_vin))).scalars().all()
+
+            calendar_series = CalendarSeries()
+            for item_model in item_models:
+                calendar_series.series.append(ResponseBaseCalendar.from_orm(item_model))
+                calendar_series.number_of_calendars += 1
+        return calendar_series
+
+    @staticmethod
     def get_items() -> Any:
         with create_session() as session:
             item_models = asyncio.run(session.execute(select(Calendar))).scalars().all()
-
-            if item_models is None:
-                posts = None
-            else:
-                posts = [ResponseBaseCalendar.from_orm(item_model) for item_model in item_models]
 
             calendar_series = CalendarSeries()
             for item_model in item_models:
@@ -90,5 +97,4 @@ class CalendarAdapter:
                 old_item_model.status = item_model.status
 
             asyncio.run(session.flush())
-            item_id = old_item_model.id
-        return item_id
+        return old_item_model

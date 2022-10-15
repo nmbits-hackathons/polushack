@@ -67,17 +67,21 @@ class TechnicsSeries(BaseModel):  # серии траспорта
 
 # _______________________________________________________________________________
 class ReadCalendar(TechnicsCharacteristic):  # заявка поступающая до обработки
-    creator: str
+    title: Optional[str]
+    description: Optional[str]
+    creator: Optional[str]
     time_start: Optional[datetime.datetime]  # время начала работ
     time_end: Optional[datetime.datetime]  # время окончания работ
     priority: Optional[str]  # выставленный приоритет  low high medium
     to_place: Optional[str]  # куда назначили константа
+
 
     class Config:
         orm_mode = True
 
 
 class BaseCalendar(ReadCalendar):  # заявка после обработки
+    driver_id: Optional[str]
     vin: Optional[str]  # vin назначенной машины
     from_place: Optional[str]  # местоположение назначенной машины (все время меняется)
     distance: Optional[float]  # дистанция до назначенной машины пересчитывется
@@ -115,6 +119,8 @@ class CalendarSeries(BaseModel):  # серии заявок
 
 
 class UpdateBaseCalendar(BaseModel):
+    title: Optional[str]
+    description: Optional[str]
     type: Optional[str]
     speed: Optional[int]
     power: Optional[int]
@@ -125,6 +131,7 @@ class UpdateBaseCalendar(BaseModel):
     time_end: Optional[datetime.datetime]
     priority: Optional[str]
     to_place: Optional[str]
+    driver_id: Optional[str]
     vin: Optional[str]  # обязательный параметр для обновления
     from_place: Optional[str]
     distance: Optional[str]
