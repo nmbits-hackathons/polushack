@@ -2,8 +2,8 @@ import requests
 import json
 import random
 
-# ip = "127.0.0.1:8080"
-ip = "45.67.228.220:8080"
+ip = "127.0.0.1:8080"
+# ip = "45.67.228.220:8080"
 
 headers = {
     'accept': 'application/json',

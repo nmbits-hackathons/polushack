@@ -135,10 +135,10 @@ class UpdateBaseCalendar(BaseModel):
     time_start: Optional[datetime.datetime]
     time_end: Optional[datetime.datetime]
     priority: Optional[str]
-    current_place: Optional[str]
+    to_place: Optional[str]
     driver_id: Optional[str]
     vin: Optional[str]  # обязательный параметр для обновления
-    from_place: Optional[str]
+    current_place: Optional[str]
     distance: Optional[str]
     average_time: Optional[datetime.datetime]
     status: Optional[str]
