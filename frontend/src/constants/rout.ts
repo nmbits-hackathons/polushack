@@ -3,8 +3,7 @@ import Users from "pages/Users";
 import Transport from "pages/Transport";
 import Application from "pages/Application";
 import Maps from "pages/Maps";
-import Register from "pages/Register";
-import { MAIN_PATH, MAPS_PATH, REGISTER_USER, TRANSPORT_PATH, USERS_PATH } from "constants/path";
+import { MAIN_PATH, MAPS_PATH, TRANSPORT_PATH, USERS_PATH } from "constants/path";
 import { Login } from "pages/Login";
 import { UserPosition } from "redux/auth";
 
@@ -47,12 +46,6 @@ export const routs: Rout[] = [
   {
     path: MAPS_PATH,
     Element: Maps,
-    isAuthValue: true,
-    userRole: "dispatcher",
-  },
-  {
-    path: REGISTER_USER,
-    Element: Register,
     isAuthValue: true,
     userRole: "dispatcher",
   },

@@ -35,7 +35,6 @@ const SideBar = () => {
     const myStorage = window.localStorage
     const navigate = useNavigate()
     const user = useAppSelector(userSelector)
-
     const menuItems = useMemo(() => {
         if (user?.position === "dispatcher") {
             return [

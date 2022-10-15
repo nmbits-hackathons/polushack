@@ -2,6 +2,7 @@ import axios from "axios";
 import { LoginDto, UserState } from "redux/auth";
 import { LOGIN_API, SESSION_API } from "constants/path";
 import withMock from "../withMock";
+import {config} from "constants/configRequest";
 
 export interface LoginRequest {
   access_token: string | null;
@@ -32,17 +33,13 @@ export const loginUserApi = async (data: LoginDto) => {
   });
 };
 
-export const sessionApi = async (token: string) => {
+export const sessionApi = async () => {
   if (isMock) return withMock(mockUser);
-  const { data } = await axios.get(SESSION_API, {
-    headers: {
-      "Authorization": "Bearer " + token,
-    },
-  });
+  const { data } = await axios.get(SESSION_API, config);
   return {
     email: data.email,
     id: data.id,
-    name: "test",
+    name: data.name,
     position: "dispatcher",
   };
 };

@@ -16,8 +16,9 @@ const Login = () => {
         const myStorage = window.localStorage
         const { data } = await loginUserApi(loginDto)
         myStorage.setItem("SID", data.access_token || "")
+        myStorage.setItem("token_type", data.token_type)
         if (data.access_token) {
-            dispatch(isSession(data.access_token))
+            dispatch(isSession())
         }
     }
 
