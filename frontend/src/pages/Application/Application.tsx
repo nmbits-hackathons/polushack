@@ -15,7 +15,6 @@ import AddApplicationModal from "./components/AddApplicationModal"
 import Header from "../../components/Header"
 import Card from "../../components/Card"
 import { getTitleImageForApplication } from "../../helpers/getTitleImageForApplication"
-import { initState } from "./components/AddApplicationModal/constants"
 import "./application.css"
 import { getTypeName } from "../../helpers/getTypeName"
 
@@ -42,7 +41,6 @@ const Application = () => {
                 open={openAddApplicationModal}
                 handleChangeViewModal={setOpenAddApplicationModal}
                 handleSubmitModal={handleSubmit}
-                {...{ initState }}
             />
             <Header
                 title="Мои заявки"

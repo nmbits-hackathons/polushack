@@ -1,4 +1,4 @@
-import {CreateApplicationDto} from "redux/application";
+import { CreateApplicationDto } from "redux/application"
 
 export const typesTransportSelect = [
     {
@@ -48,5 +48,5 @@ export const initState: CreateApplicationDto = {
     time_start: "",
     time_end: "",
     priority: "low",
-    to_place: ""
+    to_place: "55.77632560040908,37.92980224609375"
 }
