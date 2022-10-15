@@ -1,5 +1,6 @@
 import requests
 import json
+import random
 
 headers = {
     'accept': 'application/json',
@@ -341,6 +342,23 @@ headers = {
     'Authorization': token,
 }
 
+a = 57.655811779493945
+b = 58.683084557890254
+k = 5
+
+geoposition_list = []
+for i in range(13):
+    c1 = random.random()
+    c2 = random.random()
+
+    d1 = a + c1 * k
+    d2 = b + c2 * k
+
+    geoposition_list.append("".join(str([d1, d2]).split(" "))[:-1][1:])
+
+print(geoposition_list)
+
+
 json_data = {
     'type': 'dumptruck',
     'speed': 100,
@@ -353,7 +371,7 @@ json_data = {
     'time_start': '2022-10-18 17:18:00.854000',
     'time_end': '2022-10-21 07:18:00.854000',
     'priority': 'low',
-    'to_place': '61.329764791040915,60.69968064606914',
+    'to_place': geoposition_list[0],
 }
 
 response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
@@ -370,7 +388,7 @@ json_data = {
     'time_start': '2022-10-20 07:18:00.854000',
     'time_end': '2022-10-20 20:20:00.854000',
     'priority': 'medium',
-    'to_place': '62.44890860893237,59.59501284877946',
+    'to_place': geoposition_list[1],
 }
 
 response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
@@ -387,7 +405,7 @@ json_data = {
     'time_start': '2022-10-19 07:30:00.854000',
     'time_end': '2022-10-21 07:30:00.854000',
     'priority': 'high',
-    'to_place': '60.553500823095874,61.349276584987486',
+    'to_place': geoposition_list[2],
 }
 
 response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
@@ -404,7 +422,7 @@ json_data = {
     'time_start': '2022-10-19 07:30:00.854000',
     'time_end': '2022-10-21 07:30:00.854000',
     'priority': 'low',
-    'to_place': '59.64537904513136,63.36473425968758',
+    'to_place': geoposition_list[3],
 }
 
 response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
@@ -421,7 +439,7 @@ json_data = {
     'time_start': '2022-10-18 17:18:00.854000',
     'time_end': '2022-10-21 07:18:00.854000',
     'priority': 'high',
-    'to_place': '60.46807604456268,59.96493486296025',
+    'to_place': geoposition_list[4],
 }
 
 response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
@@ -438,7 +456,7 @@ json_data = {
     'time_start': '2022-10-20 07:18:00.854000',
     'time_end': '2022-10-20 20:20:00.854000',
     'priority': 'low',
-    'to_place': '59.49181347866175,61.76157507132185',
+    'to_place': geoposition_list[5],
 }
 
 response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
@@ -456,7 +474,7 @@ json_data = {
     'time_start': '2022-10-19 07:30:00.854000',
     'time_end': '2022-10-21 07:30:00.854000',
     'priority': 'low',
-    'to_place': '59.12004962596948,62.120219919051955',
+    'to_place': geoposition_list[6],
 }
 
 response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
@@ -473,7 +491,7 @@ json_data = {
     'time_start': '2022-10-22 07:18:00.854000',
     'time_end': '2022-10-25 07:45:00.854000',
     'priority': 'medium',
-    'to_place': '57.7124778810186,62.92537158269301',
+    'to_place': geoposition_list[7],
 }
 
 response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
@@ -490,7 +508,7 @@ json_data = {
     'time_start': '2022-10-18 17:18:00.854000',
     'time_end': '2022-10-21 07:18:00.854000',
     'priority': 'low',
-    'to_place': '61.360845764599986,62.16053254198642',
+    'to_place': geoposition_list[8],
 }
 
 response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
@@ -507,7 +525,7 @@ json_data = {
     'time_start': '2022-10-20 07:18:00.854000',
     'time_end': '2022-10-20 20:20:00.854000',
     'priority': 'medium',
-    'to_place': '59.66162390620764,61.95034743328062',
+    'to_place': geoposition_list[9],
 }
 
 response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
@@ -524,7 +542,7 @@ json_data = {
     'time_start': '2022-10-19 07:30:00.854000',
     'time_end': '2022-10-21 07:30:00.854000',
     'priority': 'low',
-    'to_place': '61.2812465775042,59.023078003641345',
+    'to_place': geoposition_list[10],
 }
 
 response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
@@ -541,7 +559,9 @@ json_data = {
     'time_start': '2022-10-20 07:18:00.854000',
     'time_end': '2022-10-25 07:45:00.854000',
     'priority': 'high',
-    'to_place': '59.345017442040806,61.12740874623042',
+    'to_place': geoposition_list[11],
 }
 
 response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
+
+print()
