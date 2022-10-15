@@ -3,6 +3,7 @@ import { ADD_APPLICATION, GET_APPLICATION } from "constants/path"
 import { Application, CreateApplicationDto } from "redux/application"
 import withMock from "../withMock"
 import { getConfig } from "constants/configRequest"
+import { UserState } from "redux/auth"
 
 const isMock = process.env.IS_MOCK === "true"
 
@@ -22,7 +23,7 @@ const mockApplications: GetApplicationsData = {
             power: 20,
             operating_weight: 20,
             unloading_height: 20,
-            creator: "manager1@example.com",
+            creator: "asdsa@dadsa.ru",
             time_start: "2022-10-20T07:18:00.854000",
             time_end: "2022-10-21T07:18:00.854000",
             priority: "low",
@@ -80,12 +81,17 @@ const mockApplications: GetApplicationsData = {
     ]
 }
 
-export const getApplicationsApi = async () => {
+export const getApplicationsApi = async (user: UserState) => {
     if (isMock) return withMock(mockApplications)
     const { data } = await axios.get(GET_APPLICATION, getConfig())
     return {
         counts: data.number_of_calendars,
-        applications: data.series
+        applications:
+            user.position === "customer"
+                ? data.series.filter(
+                      (el: Application) => el.creator === user.email
+                  )
+                : data.series
     }
 }
 

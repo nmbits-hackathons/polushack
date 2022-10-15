@@ -17,15 +17,18 @@ import Card from "../../components/Card"
 import { getTitleImageForApplication } from "helpers/getTitleImageForApplication"
 import "./application.css"
 import { getTypeName } from "helpers/getTypeName"
+import { userSelector } from "redux/auth"
+import { mockUser } from "../../api"
 
 const Application = () => {
     const dispatch = useAppDispatch()
     const applications = useAppSelector(applicationsSelector)
     const isLoading = useAppSelector(isLoadingApplication)
+    const user = useAppSelector(userSelector)
     const [openAddApplicationModal, setOpenAddApplicationModal] =
         useState(false)
     useEffect(() => {
-        dispatch(getApplications())
+        dispatch(getApplications(user || mockUser))
     }, [])
 
     const handleAddApplication = () => {

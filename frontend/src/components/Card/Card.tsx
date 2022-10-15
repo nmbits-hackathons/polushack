@@ -96,7 +96,7 @@ const Card = ({
                         size="middle"
                     />
                 </div>
-                <div className="card-drop">
+                <div className={`${!open ? "card-drop" : "card-drop_active"}`}>
                     <Button
                         type="text"
                         shape="circle"
@@ -112,7 +112,10 @@ const Card = ({
                         {tableDescription &&
                             tableDescription.map((values) => {
                                 return (
-                                    <div className="full-information-table">
+                                    <div
+                                        className="full-information-table"
+                                        key={values.title}
+                                    >
                                         <h2 className="information-table-title">
                                             {values.title}
                                         </h2>
