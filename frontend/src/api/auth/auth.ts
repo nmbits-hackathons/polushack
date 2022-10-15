@@ -10,7 +10,7 @@ export interface LoginRequest {
 
 const mockLoginRequest = {
   data: {
-    access_token: null,
+    access_token: "asdsadsadsa weqw",
     token_type: null,
   },
 };
