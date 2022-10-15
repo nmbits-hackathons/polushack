@@ -27,6 +27,12 @@ export const routs: Rout[] = [
     isAuthValue: true,
   },
   {
+    path: MAPS_PATH,
+    Element: Maps,
+    isAuthValue: true,
+    userRole: "customer",
+  },
+  {
     path: USERS_PATH,
     Element: Users,
     isAuthValue: true,

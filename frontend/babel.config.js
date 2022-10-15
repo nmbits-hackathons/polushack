@@ -8,7 +8,8 @@ module.exports = function (api) {
       "alias": {
         "pages/*": "./src/pages/*",
         "constants/*": "./src/constants/*",
-        "redux/*": "./src/redux/*"
+        "redux/*": "./src/redux/*",
+        "assets/*": "./src/assets/*"
       }
     }]
   ];

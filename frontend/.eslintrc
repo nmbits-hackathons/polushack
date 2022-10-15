@@ -9,11 +9,13 @@
     "plugin:import/errors",
     "plugin:import/typescript",
     "plugin:import/warnings",
-    "plugin:react-hooks/recommended"
+    "plugin:react-hooks/recommended",
+    "prettier"
   ],
   "plugins": [
     "@typescript-eslint",
-    "react-hooks"
+    "react-hooks",
+    "prettier"
   ],
   "settings" : {
     "import/resolver": {
