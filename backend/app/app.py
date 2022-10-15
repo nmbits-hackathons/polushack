@@ -10,9 +10,22 @@ from app.users import (
     google_oauth_client,
 )
 
+from starlette.middleware.cors import CORSMiddleware
+
 import app.technics.routers as technics_routers
 
 app = FastAPI(title='Хакатон полюс', docs_url='/')
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 
 app.include_router(technics_routers.router)
 
