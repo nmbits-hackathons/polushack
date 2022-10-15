@@ -7,7 +7,6 @@ COPY main.py /code/
 COPY appsettings.ini /code/
 COPY app /code/app
 
-
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 CMD ["python3", "main.py"]

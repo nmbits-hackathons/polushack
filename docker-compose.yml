@@ -2,32 +2,21 @@ version: "3.5"
 
 services:
 
-#  postgres:
-#    image: postgres:14.2
-#    environment:
-#      - POSTGRES_PASSWORD=postgres
-#      - PGDATA=/var/lib/postgresql/data/pgdata
-#      - POSTGRES_DB=Polus # The PostgreSQL default database (automatically created at first launch)
-#    volumes:
-#      - ./postgres-data:/var/lib/postgresql/data
-#    logging:
-#      driver: "json-file"
-#      options:
-#        max-size: "20m"
-#        max-file: "5"
-#    expose:
-#      - '5432'
-#    restart: unless-stopped
-
-  sqlite3:
-    container_name: sqlite3_container
-    image: nouchka/sqlite3:latest
-    stdin_open: true
-    tty: true
+  postgres:
+    image: postgres:14.2
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - PGDATA=/var/lib/postgresql/data/pgdata
+      - POSTGRES_DB=Polus # The PostgreSQL default database (automatically created at first launch)
     volumes:
-       - ./test.db:/root/db/test.db
-    ports:
-      - '9000:9000' # expose ports - HOST:CONTAINER
+      - ./postgres-data:/var/lib/postgresql/data
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "5"
+    expose:
+      - '5432'
     restart: unless-stopped
 
   backend:
@@ -36,16 +25,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - '8080:8080'
-    volumes:
-      - ./data:/data
-      - ./test.db:/code/test.db
-    
     command: python3 main.py
 
     restart: unless-stopped
 
     depends_on:
-      - sqlite3
-
-volumes:
-  sqlite3:
+      - postgres
