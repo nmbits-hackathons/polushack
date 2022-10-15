@@ -6,7 +6,7 @@ from fastapi import (
     HTTPException
 )
 from app.technics.baseadapter import TechnicsDatabaseAdapter
-from app.schemas import TechnicsModel,ResponseTechnicsModel
+from app.schemas import TechnicsModel, ResponseTechnicsModel, UpdateTechnicsModel
 from app.db import TechnicsTable
 
 router = APIRouter(
@@ -25,7 +25,7 @@ def get_technics_by_id(technics_id):
     return technics
 
 @router.get('/get_technics_by_vin/', status_code=201)
-def get_technics_by_id(technics_vin):
+def get_technics_by_vin(technics_vin):
     technics = TechnicsDatabaseAdapter.get_technics_by_vin(technics_vin)
     return technics
 
@@ -37,10 +37,11 @@ def get_technics():
     return technics
 
 
-@router.put('/update_technics/', status_code=201)
-def update_technics():
-    return 'test'
-
+@router.put('/update_technics/', status_code=200,
+            description='функция обновления записи о технике')
+def update_technics(item: UpdateTechnicsModel):
+    TechnicsDatabaseAdapter.update_item(item_model=item)
+    return 200
 
 # @router.delete('/delete_technics_by_id/', status_code=201)
 # def delete_technics(technics_id: int):

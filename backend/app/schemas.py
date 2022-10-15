@@ -52,6 +52,8 @@ class TechnicsModel(TechnicsCharacteristic):  # характеристики т�
     vin: str
     current_place: Optional[str] = "none"  # необходимое месторасположение транспорта
     current_creator: Optional[str] = "none"  # текущий заказчик использующий средство, None если никто не использует
+    job_user_id: Optional[str] = "none"
+    is_job: Optional[bool] = False
 
     class Config:
         orm_mode = True
@@ -77,7 +79,7 @@ class ReadCalendar(TechnicsCharacteristic):  # заявка поступающа
     time_start: Optional[datetime.datetime]  # время начала работ
     time_end: Optional[datetime.datetime]  # время окончания работ
     priority: Optional[str]  # выставленный приоритет  low high medium
-    to_place: Optional[str]  # куда назначили константа
+    current_place: Optional[str]  # куда назначили константа
 
     class Config:
         orm_mode = True
@@ -133,11 +135,25 @@ class UpdateBaseCalendar(BaseModel):
     time_start: Optional[datetime.datetime]
     time_end: Optional[datetime.datetime]
     priority: Optional[str]
-    to_place: Optional[str]
+    current_place: Optional[str]
     driver_id: Optional[str]
     vin: Optional[str]  # обязательный параметр для обновления
     from_place: Optional[str]
     distance: Optional[str]
     average_time: Optional[datetime.datetime]
     status: Optional[str]
+    id: int
+
+
+class UpdateTechnicsModel(BaseModel):
+    type: Optional[str]
+    speed: Optional[int]
+    power: Optional[int]
+    operating_weight: Optional[int]
+    unloading_height: Optional[int]
+    vin: Optional[str]
+    current_place: Optional[str]
+    current_creator: Optional[str]
+    job_user_id: Optional[str]
+    is_job: Optional[bool]
     id: int

@@ -21,7 +21,7 @@ from app.users import (
 )
 
 from app.schemas import BaseCalendar, ResponseBaseCalendar, TechnicsModel, ReadCalendar, UpdateBaseCalendar, \
-    ResponseTechnicsModel
+    ResponseTechnicsModel, UpdateTechnicsModel
 
 from app.calendar.calendar_adapter import CalendarAdapter
 
@@ -50,12 +50,17 @@ def add_item(read_data: ReadCalendar) -> ResponseBaseCalendar:
     if technics_vin == "cancelled":
         changes = UpdateBaseCalendar(id=response.id)
         changes.status = "cancelled"
-        response = CalendarAdapter.update_item(changes)
+        CalendarAdapter.update_item(changes)
     elif technics_vin != "None":
         changes = UpdateBaseCalendar(id=response.id)
         changes.vin = technics_vin
         changes.status = "active"
-        response = CalendarAdapter.update_item(changes)
+        CalendarAdapter.update_item(changes)
+
+        technics_id = TechnicsDatabaseAdapter.get_technics_by_vin(technics_vin).id
+        changes = UpdateTechnicsModel(id=technics_id)
+        changes.is_job = True
+        TechnicsDatabaseAdapter.update_item(changes)
 
     return response
 

@@ -77,8 +77,8 @@ class CalendarAdapter:
                 old_item_model.unloading_height = item_model.unloading_height
             if item_model.creator is not None:
                 old_item_model.creator = item_model.creator
-            if item_model.to_place is not None:
-                old_item_model.to_place = item_model.to_place
+            if item_model.current_place is not None:
+                old_item_model.current_place = item_model.current_place
             if item_model.time_start is not None:
                 old_item_model.time_start = item_model.time_start
             if item_model.time_end is not None:

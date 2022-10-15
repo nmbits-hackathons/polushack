@@ -48,7 +48,7 @@ class Calendar(Base):
 
     # необходмиые данные при созданиии заявки
     creator = Column(String)
-    to_place = Column(String)  # куда назначили константа
+    current_place = Column(String)  # куда назначили константа
     time_start = Column(DATETIME)  # время начала работ
     time_end = Column(DATETIME)  # время окончания работ
     priority = Column(String)  # выставленный приоритет  low high medium
@@ -58,7 +58,7 @@ class Calendar(Base):
     vin = Column(String)
     from_place = Column(String)  # обновляем из данных по вину, каждые 5 минут например
     distance = Column(String)  # дистанция до назначенной машины пересчитывется
-    average_time = Column(DATETIME)  # время до достижения машиной конца пути ( пересчитывается)
+    average_time = Column(DATETIME)  # время до достижения машиной конца пути (пересчитывается)
 
     status = Column(String)  # статус заявки confirmable, cancelled, progress, pending
 
@@ -95,6 +95,9 @@ class TechnicsTable(Base):
 
     current_place = Column(String)  # необходимое месторасположение траспорта
     current_creator = Column(String)  # текущий заказчик использующий средство,  None если никто не использует
+
+    is_job = Column(BOOLEAN)
+    job_user_id = Column(String)
 
 
 engine = create_async_engine(DATABASE_URL)
