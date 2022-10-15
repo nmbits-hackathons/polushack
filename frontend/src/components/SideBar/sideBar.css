@@ -1,0 +1,11 @@
+.sidebar-card {
+    padding: 10px 10px;
+}
+
+.sideBar-logo {
+    margin-bottom: 20px;
+    width: 60px;
+    height: 60px;
+    align-self: center;
+    justify-self: center;
+}
