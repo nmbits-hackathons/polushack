@@ -38,7 +38,7 @@ class TechnicsDatabaseAdapter:
             technics_model = asyncio.run(
                 session.execute(select(TechnicsTable).filter(TechnicsTable.vin == technics_vin))).scalars().first()
 
-        return technics_model
+        return ResponseTechnicsModel.from_orm(technics_model)
 
     @staticmethod
     def get_technics() -> Any:
@@ -46,7 +46,7 @@ class TechnicsDatabaseAdapter:
             item_models = asyncio.run(session.execute(select(TechnicsTable))).scalars().all()
             technics = TechnicsSeries()
             for i in item_models:
-                technics.series.append(i)
+                technics.series.append(ResponseTechnicsModel.from_orm(i))
                 technics.number_of_technics += 1
         return technics
 

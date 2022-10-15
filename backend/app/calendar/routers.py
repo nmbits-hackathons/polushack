@@ -1,3 +1,6 @@
+import copy
+from typing import Optional
+
 from fastapi import (
     APIRouter,
     Depends,
@@ -7,6 +10,7 @@ from fastapi import (
 )
 from app.db import User
 from app.technics.baseadapter import TechnicsDatabaseAdapter
+import random
 
 from app.users import (
     SECRET,
@@ -16,7 +20,8 @@ from app.users import (
     google_oauth_client,
 )
 
-from app.schemas import BaseCalendar, ResponseBaseCalendar, TechnicsModel, ReadCalendar, UpdateBaseCalendar
+from app.schemas import BaseCalendar, ResponseBaseCalendar, TechnicsModel, ReadCalendar, UpdateBaseCalendar, \
+    ResponseTechnicsModel
 
 from app.calendar.calendar_adapter import CalendarAdapter
 
@@ -60,6 +65,71 @@ router = APIRouter(
 )
 
 
+class Times:
+    time_start: Optional[str]
+    time_end: Optional[str]
+    id: Optional[int]
+    times = []
+
+    def __lt__(self, other):
+        if self.time_start == other.time_start:
+            return self.time_end < other.time_end
+        return self.time_start < other.time_start
+
+
+def search_for_optimal_solution_one_priority(list_technics, list_calendar):
+    # list_technics [ {id, times = []} ]
+    # list_calendar [ {time_start, time_end, id} ]
+
+    end_result_list = [0] * len(list_calendar)
+
+    list_calendar.sort()  # sorted by time_start, time_end
+    for i in range(len(list_calendar)):
+        possible_variations = [i]
+        for j in range(i + 1, len(list_calendar)):
+            if list_calendar[j].time_end > list_calendar[i].time_start:
+                break
+            possible_variations.append(j)
+
+        result = dict()
+        result["number"] = len(list_technics) + 1
+        result["answer"] = []
+        for k in range(len(possible_variations)):
+            save_list_technics = copy.deepcopy(list_technics)  # try not to damage real data
+            unique_technics = set()
+
+            random.shuffle(possible_variations)     # implement some other functions
+            created_list = []
+            for j in possible_variations:
+                created_list.append(list_calendar[j])
+            remember_technic_for_out_event = None
+            for technics_index in range(len(list_technics)):
+                technics = save_list_technics[technics_index]
+                for check_event in created_list:
+                    suitable = True
+                    for technics_event in technics.times:
+                        if str(check_event.time_end) < str(technics_event.time_start):
+                            continue
+                        if str(check_event.time_start) > str(technics_event.time_end):
+                            continue
+                        suitable = False
+                        break
+                    if suitable:
+                        unique_technics.add(technics_index)
+                        save_list_technics[technics_index].times.append(check_event)
+                        if check_event.id == list_calendar[i].id:
+                            remember_technic_for_out_event = technics_index
+            if len(unique_technics) <= result["number"]:
+                result["number"] = len(unique_technics)
+                result["answer"] = remember_technic_for_out_event
+        new_obj = Times()
+        new_obj.time_start = list_calendar[i].time_start,
+        new_obj.time_end = list_calendar[i].time_end,
+        list_technics[result["answer"]].times.append(new_obj)
+        end_result_list[i] = list_technics[result["answer"]].id
+    return end_result_list
+
+
 def calculate_technics_vin(calendar_item):
     technics_items = TechnicsDatabaseAdapter.get_technics()
     if technics_items is None:
@@ -78,7 +148,36 @@ def calculate_technics_vin(calendar_item):
             continue
 
         does_exist_suitable = True
-        print(technics_item.type, technics_item.vin)
+
+        input_list_technics = []
+        input_list_calendar = []
+
+        request_list = TechnicsDatabaseAdapter.get_technics()
+        if request_list is not None:
+            input_list_technics = request_list.series
+
+        request_list = CalendarAdapter.get_items()
+        if request_list is not None:
+            input_list_calendar = request_list.series
+
+        for i in range(len(input_list_technics)):
+            new_obj = Times()
+            new_obj.id = input_list_technics[i].id
+            new_obj.times = []
+            input_list_technics[i] = new_obj
+
+        for i in range(len(input_list_calendar)):
+            new_obj = Times()
+            new_obj.id = input_list_calendar[i].id
+            new_obj.time_start = input_list_calendar[i].time_start
+            new_obj.time_end = input_list_calendar[i].time_end
+            input_list_calendar[i] = new_obj
+
+        try:
+            search_for_optimal_solution_one_priority(input_list_technics, input_list_calendar)
+        except Exception:
+            print("Have worked")
+
         all_calendar_events_with_this_vin = CalendarAdapter.get_items_by_vin(technics_item.vin)
         if all_calendar_events_with_this_vin is None:
             return technics_item.vin

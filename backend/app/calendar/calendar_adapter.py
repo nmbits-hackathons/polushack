@@ -98,3 +98,13 @@ class CalendarAdapter:
 
             asyncio.run(session.flush())
         return old_item_model
+
+    @staticmethod
+    def get_by_priority(priority: str):
+        with create_session() as session:
+            item_models = asyncio.run(session.execute(select(Calendar).filter(Calendar.priority == priority))).scalars().all()
+            calendar_series = CalendarSeries()
+            for item_model in item_models:
+                calendar_series.series.append(ResponseBaseCalendar.from_orm(item_model))
+                calendar_series.number_of_calendars += 1
+        return calendar_series

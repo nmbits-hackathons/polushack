@@ -13,7 +13,6 @@ from app.users import (
 from starlette.middleware.cors import CORSMiddleware
 
 import app.technics.routers as technics_routers
-import app.driver.routers as user_routers
 
 app = FastAPI(title='Хакатон полюс', docs_url='/')
 
@@ -28,7 +27,6 @@ app.add_middleware(
 
 
 app.include_router(technics_routers.router)
-app.include_router(user_routers.router)
 
 '''
 
