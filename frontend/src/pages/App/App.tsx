@@ -19,7 +19,7 @@ const App = () => {
     const isAuth = useAppSelector(isAuthSelector)
     const isLoading = useAppSelector(isLoadingLogin)
     useEffect(() => {
-        dispatch(isSession())
+        if (!isAuth) dispatch(isSession())
     }, [])
 
     return (

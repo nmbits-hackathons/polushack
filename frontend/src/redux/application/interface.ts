@@ -1,6 +1,8 @@
 import {TypeTransport} from "redux/transport";
 
 export interface Application {
+    title: string;
+    description: string;
     type: TypeTransport
     speed: number,
     power: number,
@@ -27,6 +29,8 @@ export interface ApplicationState {
 }
 
 export interface CreateApplicationDto {
+    title: string;
+    description: string;
     type: TypeTransport
     speed: number
     power: number
