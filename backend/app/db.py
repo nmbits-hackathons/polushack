@@ -48,7 +48,7 @@ class Calendar(Base):
 
     # необходмиые данные при созданиии заявки
     creator = Column(String)
-    current_place = Column(String)  # куда назначили константа
+    to_place = Column(String)  # куда назначили константа
     time_start = Column(DATETIME)  # время начала работ
     time_end = Column(DATETIME)  # время окончания работ
     priority = Column(String)  # выставленный приоритет  low high medium
@@ -56,7 +56,7 @@ class Calendar(Base):
     # данные хранимые после создания текущей заявки
     driver_id = Column(String)
     vin = Column(String)
-    from_place = Column(String)  # обновляем из данных по вину, каждые 5 минут например
+    current_place = Column(String)  # обновляем из данных по вину, каждые 5 минут например
     distance = Column(String)  # дистанция до назначенной машины пересчитывется
     average_time = Column(DATETIME)  # время до достижения машиной конца пути (пересчитывается)
 

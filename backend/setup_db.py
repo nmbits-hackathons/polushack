@@ -374,7 +374,7 @@ json_data = {
     'time_start': '2022-10-18 17:18:00.854000',
     'time_end': '2022-10-21 07:18:00.854000',
     'priority': 'low',
-    'current_place': geoposition_list[0],
+    'to_place': geoposition_list[0],
 }
 
 response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
@@ -391,7 +391,7 @@ json_data = {
     'time_start': '2022-10-20 07:18:00.854000',
     'time_end': '2022-10-20 20:20:00.854000',
     'priority': 'medium',
-    'current_place': geoposition_list[1],
+    'to_place': geoposition_list[1],
 }
 
 response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
@@ -408,7 +408,7 @@ json_data = {
     'time_start': '2022-10-19 07:30:00.854000',
     'time_end': '2022-10-21 07:30:00.854000',
     'priority': 'high',
-    'current_place': geoposition_list[2],
+    'to_place': geoposition_list[2],
 }
 
 response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
@@ -425,7 +425,7 @@ json_data = {
     'time_start': '2022-10-19 07:30:00.854000',
     'time_end': '2022-10-21 07:30:00.854000',
     'priority': 'low',
-    'current_place': geoposition_list[3],
+    'to_place': geoposition_list[3],
 }
 
 response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
@@ -442,7 +442,7 @@ json_data = {
     'time_start': '2022-10-18 17:18:00.854000',
     'time_end': '2022-10-21 07:18:00.854000',
     'priority': 'high',
-    'current_place': geoposition_list[4],
+    'to_place': geoposition_list[4],
 }
 
 response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
@@ -459,7 +459,7 @@ json_data = {
     'time_start': '2022-10-20 07:18:00.854000',
     'time_end': '2022-10-20 20:20:00.854000',
     'priority': 'low',
-    'current_place': geoposition_list[5],
+    'to_place': geoposition_list[5],
 }
 
 response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
@@ -477,7 +477,7 @@ json_data = {
     'time_start': '2022-10-19 07:30:00.854000',
     'time_end': '2022-10-21 07:30:00.854000',
     'priority': 'low',
-    'current_place': geoposition_list[6],
+    'to_place': geoposition_list[6],
 }
 
 response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
@@ -494,7 +494,7 @@ json_data = {
     'time_start': '2022-10-22 07:18:00.854000',
     'time_end': '2022-10-25 07:45:00.854000',
     'priority': 'medium',
-    'current_place': geoposition_list[7],
+    'to_place': geoposition_list[7],
 }
 
 response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
@@ -511,7 +511,7 @@ json_data = {
     'time_start': '2022-10-18 17:18:00.854000',
     'time_end': '2022-10-21 07:18:00.854000',
     'priority': 'low',
-    'current_place': geoposition_list[8],
+    'to_place': geoposition_list[8],
 }
 
 response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
@@ -528,7 +528,7 @@ json_data = {
     'time_start': '2022-10-20 07:18:00.854000',
     'time_end': '2022-10-20 20:20:00.854000',
     'priority': 'medium',
-    'current_place': geoposition_list[9],
+    'to_place': geoposition_list[9],
 }
 
 response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
@@ -545,7 +545,7 @@ json_data = {
     'time_start': '2022-10-19 07:30:00.854000',
     'time_end': '2022-10-21 07:30:00.854000',
     'priority': 'low',
-    'current_place': geoposition_list[10],
+    'to_place': geoposition_list[10],
 }
 
 response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
@@ -562,7 +562,7 @@ json_data = {
     'time_start': '2022-10-20 07:18:00.854000',
     'time_end': '2022-10-25 07:45:00.854000',
     'priority': 'high',
-    'current_place': geoposition_list[11],
+    'to_place': geoposition_list[11],
 }
 
 response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)

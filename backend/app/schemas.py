@@ -79,7 +79,7 @@ class ReadCalendar(TechnicsCharacteristic):  # заявка поступающа
     time_start: Optional[datetime.datetime]  # время начала работ
     time_end: Optional[datetime.datetime]  # время окончания работ
     priority: Optional[str]  # выставленный приоритет  low high medium
-    current_place: Optional[str]  # куда назначили константа
+    to_place: Optional[str]  # куда назначили константа
 
     class Config:
         orm_mode = True
@@ -88,7 +88,7 @@ class ReadCalendar(TechnicsCharacteristic):  # заявка поступающа
 class BaseCalendar(ReadCalendar):  # заявка после обработки
     driver_id: Optional[str]
     vin: Optional[str]  # vin назначенной машины
-    from_place: Optional[str]  # местоположение назначенной машины (все время меняется)
+    current_place: Optional[str]  # местоположение назначенной машины (все время меняется)
     distance: Optional[float]  # дистанция до назначенной машины пересчитывается
     average_time: Optional[datetime.datetime]  # время до достижения машиной конца пути (пересчитывается)
     status: Optional[str]  # статус заявки confirmable, cancelled, progress, pending
