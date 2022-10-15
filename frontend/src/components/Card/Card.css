@@ -125,6 +125,12 @@
     right: 25px;
 }
 
+.card-drop_active {
+    position: absolute;
+    top: calc(20% - 14px);
+    right: 25px;
+}
+
 .wrapper-full-information {
     min-width: 40%;
     display: flex;

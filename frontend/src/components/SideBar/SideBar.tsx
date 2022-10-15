@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from "react"
-import { useNavigate } from "react-router-dom"
+import React, { useState, useMemo, useEffect } from "react"
+import { useNavigate, useLocation } from "react-router-dom"
 import { useAppSelector, useAppDispatch } from "redux/inerface"
 import { Divider, Menu, Card, Avatar } from "antd"
 import {
@@ -34,6 +34,7 @@ const SideBar = () => {
     const dispatch = useAppDispatch()
     const myStorage = window.localStorage
     const navigate = useNavigate()
+    const location = useLocation()
     const user = useAppSelector(userSelector)
     const menuItems = useMemo(() => {
         if (user?.position === "dispatcher") {
@@ -74,11 +75,8 @@ const SideBar = () => {
         ]
     }, [user?.position])
 
-    const [selectedKey, setSelectedKey] = useState(
-        user?.position === "dispatcher" ? MAIN_PATH : MAPS_PATH
-    )
+    const [selectedKey, setSelectedKey] = useState(location.pathname)
     const handleSelectMenuItem = ({ key }: MenuInfo) => {
-        setSelectedKey(key)
         navigate(key)
     }
 
@@ -87,6 +85,9 @@ const SideBar = () => {
         myStorage.clear()
     }
 
+    useEffect(() => {
+        setSelectedKey(location.pathname)
+    }, [location.pathname])
     return (
         <>
             <Card

@@ -18,7 +18,7 @@ const mockLoginRequest = {
 
 const isMock = process.env.IS_MOCK === "true"
 
-const mockUser: UserState = {
+export const mockUser: UserState = {
     id: "test-id-1",
     name: "Semen",
     email: "asdsa@dadsa.ru",
@@ -39,6 +39,6 @@ export const sessionApi = async (type?: string, token?: string) => {
         email: data.email,
         id: data.id,
         name: data.name,
-        position: "dispatcher"
+        position: data.position
     }
 }

@@ -3,5 +3,5 @@ export const getTextForStatus = (status: string) => {
     if (status === "progress") return "В процессе"
     if (status === "cancelled") return "Отменена"
     if (status === "pending") return "Не распределена"
-    return "default"
+    return "В распределении"
 }
