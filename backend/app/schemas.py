@@ -29,7 +29,12 @@ class UserUpdate(schemas.BaseUserUpdate):
     pass
 
 
+class UserSeries(BaseModel):
+    number_of_users: int = 0
+    series: List[UserRead] = []
+
 # ___________________________________________________
+
 
 class TechnicsCharacteristic(BaseModel):  # характеристики транспорта
     type: str = "dumptruck"  # dumptruck, excavator, bulldozer

@@ -4,7 +4,7 @@ from typing import Any, Optional, Union
 from sqlalchemy import select
 
 from app.db import Calendar
-from app.schemas import BaseCalendar, ResponseBaseCalendar, CalendarSeries,UpdateBaseCalendar
+from app.schemas import BaseCalendar, ResponseBaseCalendar, CalendarSeries, UpdateBaseCalendar
 from app.db import create_session
 
 
