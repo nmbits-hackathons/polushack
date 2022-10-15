@@ -28,7 +28,7 @@ const Login = () => {
                 onFinish={handleLogin}
                 style={{
                     width: 545,
-                    height: 475,
+                    height: 475
                 }}
                 layout="vertical"
             >
@@ -88,7 +88,7 @@ const Login = () => {
                     </Button>
                 </Form.Item>
             </Form>
-            <img className="login-image" src={CarImage} alt="картинка машины"/>
+            <img className="login-image" src={CarImage} alt="картинка машины" />
         </div>
     )
 }

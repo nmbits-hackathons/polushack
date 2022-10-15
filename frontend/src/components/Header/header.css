@@ -1,0 +1,21 @@
+.header-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 32px;
+    width: 193px;
+    height: 52px;
+    background: #3F8CD6;
+    border-radius: 16px;
+}
+
+.header-search {
+    margin-right: 10px;
+    padding: 16px 20px;
+    width: 436px;
+    height: 52px;
+    background: #FFFFFF;
+    border: 1px solid #F0F1F6;
+    border-radius: 12px;
+}

@@ -45,9 +45,7 @@ const App = () => {
                             style={{
                                 display: "flex",
                                 flexFlow: "column",
-                                alignContent: "center",
-                                justifyContent: "center",
-                                background: "#E8EEF6"
+                                background: "#F2F1EF"
                             }}
                         >
                             <Routes>

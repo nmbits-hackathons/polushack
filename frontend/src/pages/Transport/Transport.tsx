@@ -1,7 +1,11 @@
 import React from "react"
+import Header from "../../components/Header";
 
 const Transport = () => {
-    return <div>Transport</div>
+    const handleAddTransport = () => {
+
+    }
+    return <div><Header title="Транспорт" titleBtn="Добавить траспорт" onClick={handleAddTransport}/></div>
 }
 
 export default Transport
