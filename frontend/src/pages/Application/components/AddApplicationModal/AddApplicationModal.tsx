@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { useAppSelector } from "redux/inerface"
 import {
     Modal,
@@ -15,8 +15,10 @@ import { CreateApplicationDto } from "redux/application"
 import "./addApplicationModal.css"
 import {
     prioritySelect,
-    typesTransportSelect
+    typesTransportSelect,
+    initState
 } from "pages/Application/components/AddApplicationModal/constants"
+import Maps from "../Maps"
 import { userSelector } from "redux/auth"
 import { isLoadingApplication } from "redux/application/selectors"
 
@@ -24,18 +26,15 @@ interface AddApplicationModalProps {
     handleChangeViewModal: (mode: boolean) => void
     handleSubmitModal: (data: CreateApplicationDto) => void
     open: boolean
-    initState: CreateApplicationDto
 }
 
 const AddApplicationModal = ({
     handleChangeViewModal,
     handleSubmitModal,
-    open,
-    initState
+    open
 }: AddApplicationModalProps) => {
     const user = useAppSelector(userSelector)
     const isLoading = useAppSelector(isLoadingApplication)
-
     const [formValue, setFormValue] = useState<CreateApplicationDto>({
         ...initState,
         creator: user?.email || ""
@@ -43,9 +42,6 @@ const AddApplicationModal = ({
     const handleChangeValue = (key: string, value: string | number) => {
         setFormValue((prev) => ({ ...prev, [key]: value }))
     }
-    useEffect(() => {
-        if (!open) setFormValue(initState)
-    }, [open])
     return (
         <Modal
             centered
@@ -67,6 +63,7 @@ const AddApplicationModal = ({
                         Новая заявка
                     </h1>
                     <Form
+                        initialValues={formValue}
                         layout="vertical"
                         style={{ alignSelf: "center", justifySelf: "center" }}
                     >
@@ -334,6 +331,7 @@ const AddApplicationModal = ({
                             </Form.Item>
                         </div>
                     </Form>
+                    <Maps handleChangeValue={handleChangeValue} />
                 </div>
             </Spin>
         </Modal>
