@@ -15,7 +15,7 @@ from app.users import (
     google_oauth_client,
 )
 
-from app.schemas import BaseCalendar, ResponseBaseCalendar, TechnicsModel, ReadCalendar,UpdateBaseCalendar
+from app.schemas import BaseCalendar, ResponseBaseCalendar, TechnicsModel, ReadCalendar, UpdateBaseCalendar
 
 from app.calendar.calendar_adapter import CalendarAdapter
 
@@ -30,12 +30,13 @@ booking_router = APIRouter(
 
 
 @booking_router.post('/add_technics_request/',
-                     description="создание новой заявки на технику для заказчика, идет симулирование обработки - в частности создаетсчя заявка со статусом active, так же назначается vin машины 239 ")
+                     description="создание новой заявки на технику для заказчика, идет симулирование обработки - в "
+                                 "частности создается заявка со статусом active, так же назначается vin машины 239 "
+                                 "(получаем ResponseBaseCalendar)")
 def add_item(read_data: ReadCalendar, user: User = Depends(current_active_user)) -> ResponseBaseCalendar:
-
     item = BaseCalendar(**read_data.dict())
     item.creator = user.email
-    item.vin = 239
+    item.vin = "239"
     item.status = "active"
 
     response = CalendarAdapter.create_item(item_model=item)
@@ -47,13 +48,13 @@ router = APIRouter(
 )
 
 
-@router.post('/add_item/', description="только для диспетчера - добавление записи в календарь")
-def add_item(item: BaseCalendar):
-    item_id = CalendarAdapter.create_item(item_model=item)
-    return item_id
+# @router.post('/add_item/', description="только для диспетчера - добавление записи в календарь")
+# def add_item(item: BaseCalendar):
+#     item_id = CalendarAdapter.create_item(item_model=item)
+#     return item_id
 
 
-@router.get('/get_items/', description="получение календаря заявок")
+@router.get('/get_items/', description="получение календаря заявок (получаем CalendarSeries)")
 def get_items():
     items = CalendarAdapter.get_items()
     if items is None:
@@ -61,7 +62,8 @@ def get_items():
     return items
 
 
-@router.get('/get_item_by_id/', status_code=200, description="получение календарной сущности по id")
+@router.get('/get_item_by_id/', status_code=200, description="получение календарной сущности по id (получаем "
+                                                             "ResponseBaseCalendar)")
 def get_item_by_id(item_id: int):
     item = CalendarAdapter.get_item_by_id(item_id)
     if item is None:
@@ -69,11 +71,10 @@ def get_item_by_id(item_id: int):
     return item
 
 
-
-@router.put('/update_item/', status_code=200,description='функция обновления календарной записи, единственный обязательный параметр id записи, так же указыватся поля которые необходимо заменить')
+@router.put('/update_item/', status_code=200,
+            description='функция обновления календарной записи, единственный обязательный параметр id записи, '
+                        'так же указыватся поля которые необходимо заменить (получаем item_id)')
 def update_item_by_id(item: UpdateBaseCalendar):
-    print(2)
-    print(item)
     CalendarAdapter.update_item(item_model=item)
     return 200
 
