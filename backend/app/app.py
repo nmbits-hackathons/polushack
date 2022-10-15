@@ -10,8 +10,17 @@ from app.users import (
     google_oauth_client,
 )
 
+import app.technics.routers as technics_routers
+
 app = FastAPI(title='Хакатон полюс', docs_url='/')
 
+app.include_router(technics_routers.router)
+
+'''
+
+сущность календарной записи ( не путать с сущностью заявки)
+
+'''
 app.include_router(calendar_routers.router)
 app.include_router(
     fastapi_users.get_auth_router(auth_backend), prefix="/auth/jwt", tags=["auth"]

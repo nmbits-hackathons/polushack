@@ -13,6 +13,7 @@ from fastapi_users.db import SQLAlchemyUserDatabase
 from httpx_oauth.clients.google import GoogleOAuth2
 
 import sqlalchemy as sa
+from sqlalchemy import sql
 
 from app.db import User, get_user_db
 
@@ -28,11 +29,14 @@ class UserManager(UUIDIDMixin, BaseUserManager[User, uuid.UUID]):
     reset_password_token_secret = SECRET
     verification_token_secret = SECRET
 
-    role = sa.Column(
+    name = sa.Column(sa.String)
+    position = sa.Column(
         sa.String(length=100),
-        server_default=sa.sql.expression.literal("No name given"),
+        server_default=sql.expression.literal("No name given"),
         nullable=False,
     )
+
+    description = sa.Column(sa.String)
 
     async def on_after_register(self, user: User, request: Optional[Request] = None):
         print(f"User {user.id} has registered.")

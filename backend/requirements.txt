@@ -1,6 +1,6 @@
 aiosqlite==0.17.0
 anyio==3.6.1
-asyncpg==0.26.0
+#asyncpg==0.26.0 for async Postgres
 bcrypt==4.0.1
 certifi==2022.9.24
 cffi==1.15.1
@@ -20,6 +20,7 @@ httpx-oauth==0.10.1
 idna==3.4
 makefun==1.15.0
 passlib==1.7.4
+# psycopg2==2.9.4 for base Postgres
 pycparser==2.21
 pydantic==1.10.2
 PyJWT==2.4.0
