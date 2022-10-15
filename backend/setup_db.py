@@ -2,6 +2,7 @@ import requests
 import json
 import random
 
+# ip = "127.0.0.1:8080"
 ip = "45.67.228.220:8080"
 
 headers = {
@@ -335,7 +336,7 @@ data = {
     'client_secret': '',
 }
 
-response = requests.post(f'http://{ip}/auth/register', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/auth/jwt/login', headers=headers, data=data)
 token = json.loads(response.text)["token_type"] + " " + json.loads(response.text)["access_token"]
 print(token)
 
