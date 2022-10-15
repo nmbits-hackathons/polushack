@@ -81,6 +81,7 @@ class ReadCalendar(TechnicsCharacteristic):  # заявка поступающа
 
 
 class BaseCalendar(ReadCalendar):  # заявка после обработки
+    driver_id: Optional[str]
     vin: Optional[str]  # vin назначенной машины
     from_place: Optional[str]  # местоположение назначенной машины (все время меняется)
     distance: Optional[float]  # дистанция до назначенной машины пересчитывется
@@ -130,6 +131,7 @@ class UpdateBaseCalendar(BaseModel):
     time_end: Optional[datetime.datetime]
     priority: Optional[str]
     to_place: Optional[str]
+    driver_id: Optional[str]
     vin: Optional[str]  # обязательный параметр для обновления
     from_place: Optional[str]
     distance: Optional[str]

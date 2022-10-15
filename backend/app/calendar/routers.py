@@ -52,7 +52,6 @@ def add_item(read_data: ReadCalendar, user: User = Depends(current_active_user))
         changes.status = "active"
         response = CalendarAdapter.update_item(changes)
 
-
     return response
 
 
