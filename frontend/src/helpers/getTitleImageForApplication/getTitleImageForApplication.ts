@@ -8,6 +8,6 @@ import {TypeTransport} from "redux/transport";
 export const getTitleImageForApplication = (type: TypeTransport) => {
     if (type === "dumptruck") return DumptruckImg;
     if (type === "excavator") return ExcavatorImg;
-    if (type === "buldozer") return BuldozerImg;
+    if (type === "bulldozer") return BuldozerImg;
     return FlagImg;
 }

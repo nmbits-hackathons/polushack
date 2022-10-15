@@ -5,12 +5,19 @@ import {
     applicationsSelector,
     isLoadingApplication
 } from "redux/application/selectors"
-import { getApplications } from "redux/application"
+import {
+    addNewApplication,
+    CreateApplicationDto,
+    getApplications
+} from "redux/application"
+import BlueClock from "assets/icons/BlueClock"
 import AddApplicationModal from "./components/AddApplicationModal"
 import Header from "../../components/Header"
 import Card from "../../components/Card"
 import { getTitleImageForApplication } from "../../helpers/getTitleImageForApplication"
+import { initState } from "./components/AddApplicationModal/constants"
 import "./application.css"
+import { getTypeName } from "../../helpers/getTypeName"
 
 const Application = () => {
     const dispatch = useAppDispatch()
@@ -25,12 +32,17 @@ const Application = () => {
     const handleAddApplication = () => {
         setOpenAddApplicationModal((prev) => !prev)
     }
+    const handleSubmit = (data: CreateApplicationDto) => {
+        dispatch(addNewApplication(data))
+        setOpenAddApplicationModal(false)
+    }
     return (
         <div className="application-wrapper">
             <AddApplicationModal
                 open={openAddApplicationModal}
                 handleChangeViewModal={setOpenAddApplicationModal}
-                handleSubmitModal={() => {}}
+                handleSubmitModal={handleSubmit}
+                {...{ initState }}
             />
             <Header
                 title="Мои заявки"
@@ -50,13 +62,18 @@ const Application = () => {
                             <Card
                                 key={application.id}
                                 id={application.id}
-                                title={application.creator}
+                                title={application.title}
                                 titleImage={getTitleImageForApplication(
                                     application.type
                                 )}
-                                description={`Расстояние: ${Math.floor(
-                                    Math.random() * 150 * Math.random() * 10
+                                description={`Тип: ${getTypeName(
+                                    application.type
                                 )}`}
+                                firstIcon={BlueClock}
+                                firstInformation="1.13"
+                                secondIcon={BlueClock}
+                                secondInformation={application.time_start}
+                                status={application.status}
                             />
                         )
                     })}

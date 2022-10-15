@@ -1,8 +1,10 @@
+import {CreateApplicationDto} from "redux/application";
+
 export const typesTransportSelect = [
     {
-        key: "buldozer",
+        key: "bulldozer",
         title: "Бульдозер",
-        value: "buldozer"
+        value: "bulldozer"
     },
     {
         key: "dumptruck",
@@ -33,3 +35,18 @@ export const prioritySelect = [
         value: "high"
     }
 ]
+
+export const initState: CreateApplicationDto = {
+    title: "",
+    description: "",
+    type: "dumptruck",
+    speed: 5,
+    power: 5,
+    operating_weight: 10,
+    unloading_height: 15,
+    creator: "",
+    time_start: "",
+    time_end: "",
+    priority: "low",
+    to_place: ""
+}

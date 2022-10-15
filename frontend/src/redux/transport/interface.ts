@@ -1,1 +1,1 @@
-export type TypeTransport = "dumptruck" | "excavator" | "buldozer"
+export type TypeTransport = "dumptruck" | "excavator" | "bulldozer"

@@ -28,6 +28,12 @@
     opacity: 0.4;
 }
 
+.information-image {
+    width: 63px;
+    height: 63px;
+    object-fit: contain;
+}
+
 .information-main {
     display: flex;
     flex-flow: column nowrap;
@@ -50,4 +56,31 @@
     font-size: 16px;
     line-height: 24px;
     color: #132A40;
+}
+
+.card-time {
+    margin-left: 60px;
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    column-gap: 25px;
+}
+
+.card-time-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: #333333;
+}
+
+.card-date {
+    margin-left: 60px;
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    column-gap: 25px;
 }

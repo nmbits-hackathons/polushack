@@ -6,7 +6,8 @@
       "pages/*": ["./src/pages/*"],
       "constants/*": ["./src/constants/*"],
       "redux/*": ["./src/redux/*"],
-      "assets/*": ["./src/assets/*"]
+      "assets/*": ["./src/assets/*"],
+      "helpers/*": ["./src/helpers/*"]
     },
     "outDir": "./dist",
     "target": "es5",

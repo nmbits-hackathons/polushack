@@ -1,6 +1,6 @@
 import axios from "axios";
-import { GET_APPLICATION } from "constants/path"
-import { Application } from "redux/application";
+import {ADD_APPLICATION, GET_APPLICATION} from "constants/path"
+import {Application, CreateApplicationDto} from "redux/application";
 import withMock from "../withMock";
 import { config } from "constants/configRequest";
 
@@ -15,6 +15,8 @@ const mockApplications: GetApplicationsData = {
     counts: 3,
     applications: [
         {
+            title: "mock title 1",
+            description: "mock des 1",
             type: "dumptruck",
             speed: 20,
             power: 20,
@@ -33,6 +35,8 @@ const mockApplications: GetApplicationsData = {
             id: "1"
         },
         {
+            title: "mock title 2",
+            description: "mock des 2",
             type: "excavator",
             speed: 40,
             power: 100,
@@ -51,7 +55,9 @@ const mockApplications: GetApplicationsData = {
             id: "2"
         },
         {
-            type: "buldozer",
+            title: "mock title 3",
+            description: "mock des 3",
+            type: "bulldozer",
             speed: 30,
             power: 30,
             operating_weight: 30,
@@ -78,4 +84,10 @@ export const getApplicationsApi = async () => {
         counts: data.number_of_calendars,
         applications: data.series
     }
+}
+
+export const addNewApplicationApi = async (createApplicationDto: CreateApplicationDto) => {
+    if (isMock) return withMock(mockApplications.applications[0]);
+    const { data } = await axios.post(ADD_APPLICATION, createApplicationDto, config)
+    return data
 }
