@@ -9,17 +9,14 @@ import "./login.css"
 
 const Login = () => {
     const dispatch = useAppDispatch()
-
+    const myStorage = window.localStorage
     const isLoading = useAppSelector(isLoadingLogin)
 
     const handleLogin = async (loginDto: LoginDto) => {
-        const myStorage = window.localStorage
         const { data } = await loginUserApi(loginDto)
         myStorage.setItem("SID", data.access_token || "")
         myStorage.setItem("token_type", data.token_type)
-        if (data.access_token) {
-            dispatch(isSession())
-        }
+        dispatch(isSession({ type: data.token_type, token: data.access_token }))
     }
 
     return (
