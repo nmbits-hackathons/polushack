@@ -2,6 +2,8 @@ import requests
 import json
 import random
 
+ip = "45.67.228.220:8080"
+
 headers = {
     'accept': 'application/json',
     # Already added when you pass json= but not when you pass data=
@@ -19,7 +21,7 @@ json_data = {
     'current_creator': 'Polyus',
 }
 
-response = requests.post('http://127.0.0.1:8080/technics/create_technics/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/technics/create_technics/', headers=headers, json=json_data)
 
 json_data = {
     'type': 'dumptruck',
@@ -32,7 +34,7 @@ json_data = {
     'current_creator': 'Polyus',
 }
 
-response = requests.post('http://127.0.0.1:8080/technics/create_technics/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/technics/create_technics/', headers=headers, json=json_data)
 
 json_data = {
     'type': 'dumptruck',
@@ -45,7 +47,7 @@ json_data = {
     'current_creator': 'Polyus',
 }
 
-response = requests.post('http://127.0.0.1:8080/technics/create_technics/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/technics/create_technics/', headers=headers, json=json_data)
 
 # json_data = {
 #     'type': 'dumptruck',
@@ -85,7 +87,7 @@ json_data = {
     'current_creator': 'Polyus',
 }
 
-response = requests.post('http://127.0.0.1:8080/technics/create_technics/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/technics/create_technics/', headers=headers, json=json_data)
 
 json_data = {
     'type': 'excavator',
@@ -98,7 +100,7 @@ json_data = {
     'current_creator': 'Polyus',
 }
 
-response = requests.post('http://127.0.0.1:8080/technics/create_technics/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/technics/create_technics/', headers=headers, json=json_data)
 
 json_data = {
     'type': 'excavator',
@@ -111,7 +113,7 @@ json_data = {
     'current_creator': 'Polyus',
 }
 
-response = requests.post('http://127.0.0.1:8080/technics/create_technics/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/technics/create_technics/', headers=headers, json=json_data)
 
 json_data = {
     'type': 'excavator',
@@ -124,7 +126,7 @@ json_data = {
     'current_creator': 'Polyus',
 }
 
-response = requests.post('http://127.0.0.1:8080/technics/create_technics/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/technics/create_technics/', headers=headers, json=json_data)
 
 json_data = {
     'type': 'bulldozer',
@@ -137,7 +139,7 @@ json_data = {
     'current_creator': 'Polyus',
 }
 
-response = requests.post('http://127.0.0.1:8080/technics/create_technics/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/technics/create_technics/', headers=headers, json=json_data)
 
 json_data = {
     'type': 'bulldozer',
@@ -150,7 +152,7 @@ json_data = {
     'current_creator': 'Polyus',
 }
 
-response = requests.post('http://127.0.0.1:8080/technics/create_technics/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/technics/create_technics/', headers=headers, json=json_data)
 
 json_data = {
     'type': 'bulldozer',
@@ -163,7 +165,7 @@ json_data = {
     'current_creator': 'Polyus',
 }
 
-response = requests.post('http://127.0.0.1:8080/technics/create_technics/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/technics/create_technics/', headers=headers, json=json_data)
 
 json_data = {
     'type': 'bulldozer',
@@ -176,7 +178,7 @@ json_data = {
     'current_creator': 'Polyus',
 }
 
-response = requests.post('http://127.0.0.1:8080/technics/create_technics/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/technics/create_technics/', headers=headers, json=json_data)
 
 
 # json_data = {
@@ -206,7 +208,7 @@ json_data = {
     'description': 'string',
 }
 
-response = requests.post('http://127.0.0.1:8080/auth/register', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/auth/register', headers=headers, json=json_data)
 
 print(response.text)
 print()
@@ -222,7 +224,7 @@ json_data = {
     'description': 'string',
 }
 
-response = requests.post('http://127.0.0.1:8080/auth/register', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/auth/register', headers=headers, json=json_data)
 
 print(response.text)
 print()
@@ -238,7 +240,7 @@ json_data = {
     'description': 'string',
 }
 
-response = requests.post('http://127.0.0.1:8080/auth/register', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/auth/register', headers=headers, json=json_data)
 
 print(response.text)
 print()
@@ -254,7 +256,7 @@ json_data = {
     'description': 'string',
 }
 
-response = requests.post('http://127.0.0.1:8080/auth/register', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/auth/register', headers=headers, json=json_data)
 
 print(response.text)
 print()
@@ -271,7 +273,7 @@ json_data = {
     'description': 'string',
 }
 
-response = requests.post('http://127.0.0.1:8080/auth/register', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/auth/register', headers=headers, json=json_data)
 
 print(response.text)
 print()
@@ -287,7 +289,7 @@ json_data = {
     'description': 'string',
 }
 
-response = requests.post('http://127.0.0.1:8080/auth/register', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/auth/register', headers=headers, json=json_data)
 
 print(response.text)
 print()
@@ -303,7 +305,7 @@ json_data = {
     'description': 'string',
 }
 
-response = requests.post('http://127.0.0.1:8080/auth/register', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/auth/register', headers=headers, json=json_data)
 
 print(response.text)
 print()
@@ -319,7 +321,7 @@ json_data = {
     'description': 'string',
 }
 
-response = requests.post('http://127.0.0.1:8080/auth/register', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/auth/register', headers=headers, json=json_data)
 
 print(response.text)
 print()
@@ -333,7 +335,7 @@ data = {
     'client_secret': '',
 }
 
-response = requests.post('http://127.0.0.1:8080/auth/jwt/login', headers=headers, data=data)
+response = requests.post(f'http://{ip}/auth/register', headers=headers, json=json_data)
 token = json.loads(response.text)["token_type"] + " " + json.loads(response.text)["access_token"]
 print(token)
 
@@ -374,7 +376,7 @@ json_data = {
     'to_place': geoposition_list[0],
 }
 
-response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
 
 json_data = {
     'type': 'dumptruck',
@@ -391,7 +393,7 @@ json_data = {
     'to_place': geoposition_list[1],
 }
 
-response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
 
 json_data = {
     'type': 'dumptruck',
@@ -408,7 +410,7 @@ json_data = {
     'to_place': geoposition_list[2],
 }
 
-response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
 
 json_data = {
     'type': 'dumptruck',
@@ -425,7 +427,7 @@ json_data = {
     'to_place': geoposition_list[3],
 }
 
-response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
 
 json_data = {
     'type': 'excavator',
@@ -442,7 +444,7 @@ json_data = {
     'to_place': geoposition_list[4],
 }
 
-response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
 
 json_data = {
     'type': 'excavator',
@@ -459,7 +461,7 @@ json_data = {
     'to_place': geoposition_list[5],
 }
 
-response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
 
 
 json_data = {
@@ -477,7 +479,7 @@ json_data = {
     'to_place': geoposition_list[6],
 }
 
-response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
 
 json_data = {
     'type': 'excavator',
@@ -494,7 +496,7 @@ json_data = {
     'to_place': geoposition_list[7],
 }
 
-response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
 
 json_data = {
     'type': 'bulldozer',
@@ -511,7 +513,7 @@ json_data = {
     'to_place': geoposition_list[8],
 }
 
-response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
 
 json_data = {
     'type': 'bulldozer',
@@ -528,7 +530,7 @@ json_data = {
     'to_place': geoposition_list[9],
 }
 
-response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
 
 json_data = {
     'type': 'bulldozer',
@@ -545,7 +547,7 @@ json_data = {
     'to_place': geoposition_list[10],
 }
 
-response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
 
 json_data = {
     'type': 'bulldozer',
@@ -562,6 +564,6 @@ json_data = {
     'to_place': geoposition_list[11],
 }
 
-response = requests.post('http://127.0.0.1:8080/book/add_technics_request/', headers=headers, json=json_data)
+response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
 
 print()
