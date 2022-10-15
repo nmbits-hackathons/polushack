@@ -14,9 +14,9 @@ import BlueClock from "assets/icons/BlueClock"
 import AddApplicationModal from "./components/AddApplicationModal"
 import Header from "../../components/Header"
 import Card from "../../components/Card"
-import { getTitleImageForApplication } from "../../helpers/getTitleImageForApplication"
+import { getTitleImageForApplication } from "helpers/getTitleImageForApplication"
 import "./application.css"
-import { getTypeName } from "../../helpers/getTypeName"
+import { getTypeName } from "helpers/getTypeName"
 
 const Application = () => {
     const dispatch = useAppDispatch()
@@ -72,6 +72,23 @@ const Application = () => {
                                 secondIcon={BlueClock}
                                 secondInformation={application.time_start}
                                 status={application.status}
+                                tableDescription={[
+                                    {
+                                        title: "Номер машины",
+                                        value: application.vin || "не назначено"
+                                    },
+                                    {
+                                        title: "Начало работы",
+                                        value: application.time_start
+                                    },
+                                    {
+                                        title: "Завершение работы",
+                                        value: application.time_end
+                                    }
+                                ]}
+                                forFullDescription={application.description}
+                                transportCoords={application.current_place}
+                                placeCoords={application.to_place}
                             />
                         )
                     })}

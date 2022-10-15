@@ -26,13 +26,14 @@ const mockApplications: GetApplicationsData = {
             time_start: "2022-10-20T07:18:00.854000",
             time_end: "2022-10-21T07:18:00.854000",
             priority: "low",
-            to_place: "string",
+            to_place: "53.58643328402244,36.29676133203371",
             vin: "239",
             from_place: null,
             distance: null,
             average_time: null,
             status: "pending",
-            id: "1"
+            id: "1",
+            current_place: "56.58643328402244,37.29676133203371"
         },
         {
             title: "mock title 2",
@@ -46,13 +47,14 @@ const mockApplications: GetApplicationsData = {
             time_start: "2022-10-20T07:18:00.854000",
             time_end: "2022-10-21T07:18:00.854000",
             priority: "medium",
-            to_place: "string",
+            to_place: "55.7074841165816,42.6253746132837",
             vin: "239",
             from_place: null,
             distance: null,
             average_time: null,
             status: "pending",
-            id: "2"
+            id: "2",
+            current_place: "56.7074841165816,41.6253746132837"
         },
         {
             title: "mock title 3",
@@ -66,13 +68,14 @@ const mockApplications: GetApplicationsData = {
             time_start: "2022-10-20T07:18:00.854000",
             time_end: "2022-10-21T07:18:00.854000",
             priority: "high",
-            to_place: "string",
-            vin: "239",
+            to_place: "54.76786332336763,31.726937113283697",
+            vin: "",
             from_place: null,
             distance: null,
             average_time: null,
             status: "pending",
-            id: "3"
+            id: "3",
+            current_place: ""
         }
     ]
 }
