@@ -1,10 +1,13 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "typeRoots" : ["node_modules/@types", "src/types"],
     "paths": {
       "pages/*": ["./src/pages/*"],
       "constants/*": ["./src/constants/*"],
-      "redux/*": ["./src/redux/*"]
+      "redux/*": ["./src/redux/*"],
+      "assets/*": ["./src/assets/*"],
+      "helpers/*": ["./src/helpers/*"]
     },
     "outDir": "./dist",
     "target": "es5",
@@ -24,7 +27,8 @@
   },
   "include": [
     "./src/*",
-    "./src/**/*"
+    "./src/**/*",
+    "src/declaration.d.ts"
   ],
   "ts-node": {
     "compilerOptions": {

@@ -1,0 +1,25 @@
+@font-face {
+    font-family: "Stem";
+    src: url("assets/fonts/Stem-Bold.otf") format("otf")
+}
+@font-face {
+    font-family: "Stem";
+    src: url("assets/fonts/Stem-Light.otf") format("otf")
+}
+@font-face {
+    font-family: "Stem";
+    src: url("assets/fonts/Stem-Medium.otf") format("otf")
+}
+@font-face {
+    font-family: "Stem";
+    src: url("assets/fonts/Stem-Regular.otf") format("otf")
+}
+@font-face {
+    font-family: "Stem-Thin";
+    src: url("assets/fonts/Stem-Thin.otf") format("otf")
+}
+
+body {
+    font-family: "Stem", sans-serif !important;
+    box-sizing: border-box;
+}

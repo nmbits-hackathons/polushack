@@ -1,0 +1,16 @@
+.application-wrapper {
+    padding: 0 0 28px 0;
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: flex-start;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    min-height: 100%;
+}
+
+.applications-block {
+    margin: 0 28px 0 28px;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 24px;
+}
