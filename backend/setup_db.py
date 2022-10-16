@@ -350,7 +350,7 @@ b = 58.683084557890254
 k = 5
 
 geoposition_list = []
-for i in range(13):
+for i in range(25):
     c1 = random.random()
     c2 = random.random()
 
