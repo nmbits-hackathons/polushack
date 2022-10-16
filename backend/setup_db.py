@@ -368,14 +368,16 @@ json_data = {
     'power': 300,
     'operating_weight': 100,
     'unloading_height': 100,
-    'title': 'string',
-    'description': 'string',
+    'title': 'FOTON',
+    'description': 'Перевезти 95 т в точку_1 из точки_3',
     'creator': 'manager1@example.com',
     'time_start': '2022-10-18 17:18:00.854000',
     'time_end': '2022-10-21 07:18:00.854000',
     'priority': 'low',
     'to_place': geoposition_list[0],
 }
+
+
 
 response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
 
@@ -385,8 +387,8 @@ json_data = {
     'power': 200,
     'operating_weight': 100,
     'unloading_height': 30,
-    'title': 'string',
-    'description': 'string',
+    'title': 'DAF',
+    'description': 'Перевезти 80 т в точку_2 из точки_1',
     'creator': 'client1@example.com',
     'time_start': '2022-10-20 07:18:00.854000',
     'time_end': '2022-10-20 20:20:00.854000',
@@ -402,8 +404,8 @@ json_data = {
     'power': 200,
     'operating_weight': 100,
     'unloading_height': 30,
-    'title': 'string',
-    'description': 'string',
+    'title': 'FORD',
+    'description': 'Перевезти 95 т в точку_2 из точки_1',
     'creator': 'manager2@example.com',
     'time_start': '2022-10-19 07:30:00.854000',
     'time_end': '2022-10-21 07:30:00.854000',
@@ -419,8 +421,8 @@ json_data = {
     'power': 100,
     'operating_weight': 100,
     'unloading_height': 20,
-    'title': 'string',
-    'description': 'string',
+    'title': 'FORD',
+    'description': 'Перевезти 95 т в точку_1 из точки_4',
     'creator': 'manager2@example.com',
     'time_start': '2022-10-19 07:30:00.854000',
     'time_end': '2022-10-21 07:30:00.854000',
@@ -436,8 +438,8 @@ json_data = {
     'power': 800,
     'operating_weight': 500,
     'unloading_height': 100,
-    'title': 'string',
-    'description': 'string',
+    'title': '313D2L',
+    'description': 'Переместить 1800 м^3 грунта',
     'creator': 'manager1@example.com',
     'time_start': '2022-10-18 17:18:00.854000',
     'time_end': '2022-10-21 07:18:00.854000',
@@ -453,8 +455,8 @@ json_data = {
     'power': 1000,
     'operating_weight': 500,
     'unloading_height': 100,
-    'title': 'string',
-    'description': 'string',
+    'title': '313D2L',
+    'description': 'Переместить 700 м^3 грунта',
     'creator': 'manager1@example.com',
     'time_start': '2022-10-20 07:18:00.854000',
     'time_end': '2022-10-20 20:20:00.854000',
@@ -471,8 +473,8 @@ json_data = {
     'power': 300,
     'operating_weight': 500,
     'unloading_height': 70,
-    'title': 'string',
-    'description': 'string',
+    'title': '318D2L',
+    'description': 'Погрузить 2000 м^3 в самосвалы',
     'creator': 'manager2@example.com',
     'time_start': '2022-10-19 07:30:00.854000',
     'time_end': '2022-10-21 07:30:00.854000',
@@ -488,8 +490,8 @@ json_data = {
     'power': 1000,
     'operating_weight': 500,
     'unloading_height': 100,
-    'title': 'string',
-    'description': 'string',
+    'title': 'M320D2',
+    'description': 'Погрузить 1500 м^3 в самосвалы',    'title': 'M320D2',
     'creator': 'manager2@example.com',
     'time_start': '2022-10-22 07:18:00.854000',
     'time_end': '2022-10-25 07:45:00.854000',
@@ -505,8 +507,8 @@ json_data = {
     'power': 200,
     'operating_weight': 1000,
     'unloading_height': 50,
-    'title': 'string',
-    'description': 'string',
+    'title': 'PR 734',
+    'description': 'Переместить 35000 м^3 грунта',
     'creator': 'manager1@example.com',
     'time_start': '2022-10-18 17:18:00.854000',
     'time_end': '2022-10-21 07:18:00.854000',
@@ -522,8 +524,8 @@ json_data = {
     'power': 210,
     'operating_weight': 1000,
     'unloading_height': 47,
-    'title': 'string',
-    'description': 'string',
+    'title': 'PR 734',
+    'description': 'Переместить 5000 м^3 грунта',
     'creator': 'manager1@example.com',
     'time_start': '2022-10-20 07:18:00.854000',
     'time_end': '2022-10-20 20:20:00.854000',
@@ -539,8 +541,8 @@ json_data = {
     'power': 100,
     'operating_weight': 1000,
     'unloading_height': 46,
-    'title': 'string',
-    'description': 'string',
+    'title': 'SD16',
+    'description': 'Переместить 15000 м^3 грунта',
     'creator': 'manager2@example.com',
     'time_start': '2022-10-19 07:30:00.854000',
     'time_end': '2022-10-21 07:30:00.854000',
@@ -556,8 +558,8 @@ json_data = {
     'power': 100,
     'operating_weight': 1000,
     'unloading_height': 51,
-    'title': 'string',
-    'description': 'string',
+    'title': 'SD16',
+    'description': 'Переместить 20000 м^3 грунта',
     'creator': 'manager2@example.com',
     'time_start': '2022-10-20 07:18:00.854000',
     'time_end': '2022-10-25 07:45:00.854000',
@@ -566,5 +568,144 @@ json_data = {
 }
 
 response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
+
+json_data = {
+    'type': 'excavator',
+    'speed': 15,
+    'power': 800,
+    'operating_weight': 500,
+    'unloading_height': 100,
+    'title': "Погрузка в самосвал",
+    'description': 'Погрузить 58000 м^3 в самосвалы',
+    'creator': 'manager_abc@example.com',
+    'time_start': '2022-10-15 09:00:00.854000',
+    'time_end': '2022-10-30 09:00:00.854000',
+    'priority': 'low',
+    'to_place': 'string',
+}
+
+response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
+
+json_data = {
+    'type': 'dumptruck',
+    'speed': 200,
+    'power': 250,
+    'operating_weight': 200,
+    'unloading_height': 90,
+    'title': "Перевоз породы",
+    'description': 'Перевезти 170 т в точку_4 из точки_3',
+    'creator': 'manager_3@example.com',
+    'time_start': '2022-12-31 15:18:00.854000',
+    'time_end': '2023-01-02 07:18:00.854000',
+    'priority': 'high',
+    'to_place': 'string',
+}
+
+response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
+
+json_data = {
+    'type': 'bulldozer',
+    'speed': 80,
+    'power': 270,
+    'operating_weight': 1550,
+    'unloading_height': 80,
+    'title': "Грунт",
+    'description': 'Переместить 50000 м^3 грунта',
+    'creator': 'manager_12@example.com',
+    'time_start': '2022-10-18 00:18:00.854000',
+    'time_end': '2022-10-29 00:18:00.854000',
+    'priority': 'medium',
+    'to_place': 'string',
+}
+
+response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
+
+json_data = {
+    'type': 'excavator',
+    'speed': 23,
+    'power': 750,
+    'operating_weight': 500,
+    'unloading_height': 100,
+    'title': "Создание карьера",
+    'description': 'Переместить 20000 м^3 грунта',
+    'creator': 'manager_4@example.com',
+    'time_start': '2022-10-15 19:30:00.854000',
+    'time_end': '2022-11-20 23:59:00.854000',
+    'priority': 'medium',
+    'to_place': 'string',
+}
+
+response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
+
+json_data = {
+    'type': 'dumptruck',
+    'speed': 150,
+    'power': 300,
+    'operating_weight': 150,
+    'unloading_height': 130,
+    'title': "Рабочая перевозка",
+    'description': 'Перевезти 100 т в точку_1 из точки_5',
+    'creator': 'manager1@example.com',
+    'time_start': '2022-11-20 00:00:00.854000',
+    'time_end': '2022-12-02 23:59:00.854000',
+    'priority': 'low',
+    'to_place': 'string',
+}
+
+response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
+
+json_data = {
+    'type': 'bulldozer',
+    'speed': 60,
+    'power': 300,
+    'operating_weight': 1050,
+    'unloading_height': 60,
+    'title': 'Промывка золота',
+    'description': 'Переместить 100000 м^3 грунта',
+    'creator': 'manager_12@example.com',
+    'time_start': '2023-05-01 00:30:00.854000',
+    'time_end': '2023-05-30 00:30:00.854000',
+    'priority': 'high',
+    'to_place': 'string',
+}
+
+response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
+
+json_data = {
+    'type': 'excavator',
+    'speed': 15,
+    'power': 800,
+    'operating_weight': 500,
+    'unloading_height': 100,
+    'title': '313D2L',
+    'description': 'Переместить 50000 м^3 грунта',
+    'creator': 'manager4@example.com',
+    'time_start': '2022-10-15 09:00:00.854000',
+    'time_end': '2022-10-30 09:00:00.854000',
+    'priority': 'high',
+    'to_place': 'string',
+}
+
+response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
+
+json_data = {
+    'type': 'excavator',
+    'speed': 35,
+    'power': 500,
+    'operating_weight': 530,
+    'unloading_height': 140,
+    'title': '4ESFFC',
+    'description': 'Переместить 5000 м^3 грунта',
+    'creator': 'manager3@example.com',
+    'time_start': '2022-11-15 00:30:00.854000',
+    'time_end': '2022-11-20 22:00:00.854000',
+    'priority': 'high',
+    'to_place': 'string',
+}
+
+...
+response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
+
+
 
 print()
