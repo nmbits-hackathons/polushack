@@ -581,7 +581,7 @@ json_data = {
     'time_start': '2022-10-15 09:00:00.854000',
     'time_end': '2022-10-30 09:00:00.854000',
     'priority': 'low',
-    'to_place': 'string',
+    'to_place': geoposition_list[12],
 }
 
 response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
@@ -598,7 +598,7 @@ json_data = {
     'time_start': '2022-12-31 15:18:00.854000',
     'time_end': '2023-01-02 07:18:00.854000',
     'priority': 'high',
-    'to_place': 'string',
+    'to_place': geoposition_list[13],
 }
 
 response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
@@ -615,7 +615,7 @@ json_data = {
     'time_start': '2022-10-18 00:18:00.854000',
     'time_end': '2022-10-29 00:18:00.854000',
     'priority': 'medium',
-    'to_place': 'string',
+    'to_place': geoposition_list[14],
 }
 
 response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
@@ -632,7 +632,7 @@ json_data = {
     'time_start': '2022-10-15 19:30:00.854000',
     'time_end': '2022-11-20 23:59:00.854000',
     'priority': 'medium',
-    'to_place': 'string',
+    'to_place': geoposition_list[15],
 }
 
 response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
@@ -649,7 +649,7 @@ json_data = {
     'time_start': '2022-11-20 00:00:00.854000',
     'time_end': '2022-12-02 23:59:00.854000',
     'priority': 'low',
-    'to_place': 'string',
+    'to_place': geoposition_list[16],
 }
 
 response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
@@ -666,7 +666,7 @@ json_data = {
     'time_start': '2023-05-01 00:30:00.854000',
     'time_end': '2023-05-30 00:30:00.854000',
     'priority': 'high',
-    'to_place': 'string',
+    'to_place': geoposition_list[17],
 }
 
 response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
@@ -683,7 +683,7 @@ json_data = {
     'time_start': '2022-10-15 09:00:00.854000',
     'time_end': '2022-10-30 09:00:00.854000',
     'priority': 'high',
-    'to_place': 'string',
+    'to_place': geoposition_list[18],
 }
 
 response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
@@ -700,10 +700,9 @@ json_data = {
     'time_start': '2022-11-15 00:30:00.854000',
     'time_end': '2022-11-20 22:00:00.854000',
     'priority': 'high',
-    'to_place': 'string',
+    'to_place': geoposition_list[19],
 }
 
-...
 response = requests.post(f'http://{ip}/book/add_technics_request/', headers=headers, json=json_data)
 
 
