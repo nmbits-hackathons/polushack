@@ -112,7 +112,7 @@ const SideBar = () => {
                         description={
                             user?.position === "dispatcher"
                                 ? "Диспетчер"
-                                : "Водитель"
+                                : "Заказчик"
                         }
                     />
                 </>
