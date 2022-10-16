@@ -7,12 +7,10 @@ interface MapsProps {
 }
 
 const Maps = ({ transportCoords, placeCoords }: MapsProps) => {
+    const coordsTo = placeCoords.split(",").map((el) => +el)
     return (
         <YMaps>
-            <Map
-                width="100%"
-                defaultState={{ center: [55.75, 37.57], zoom: 9 }}
-            >
+            <Map width="100%" defaultState={{ center: coordsTo, zoom: 6 }}>
                 {transportCoords && (
                     <Placemark
                         geometry={transportCoords.split(",").map((el) => +el)}
@@ -23,7 +21,7 @@ const Maps = ({ transportCoords, placeCoords }: MapsProps) => {
                     />
                 )}
                 <Placemark
-                    geometry={placeCoords.split(",").map((el) => +el)}
+                    geometry={coordsTo}
                     options={{
                         preset: "islands#blueGovernmentCircleIcon",
                         iconColor: "green"
